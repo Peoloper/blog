@@ -1,5 +1,9 @@
 <?php
 
+
+use App\Http\Controllers\backend\CategoryController;
+use App\Http\Controllers\backend\DashboardController;
+use App\Http\Controllers\backend\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,10 +21,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::group(['prefix' => 'admin', 'as'=>'admin.', 'middleware'=>['auth']], function ()
+{
+    Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
+    Route::resource('post' ,PostController::class);
+    Route::resource('category', CategoryController::class);
+});
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
