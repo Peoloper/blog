@@ -1,0 +1,44 @@
+.post-category
+{
+    display: inline-block;
+    padding: 2px 10px;
+    letter-spacing: .2em;
+    font-weight: 700;
+    font-size: .6rem;
+    text-transform: uppercase;
+}
+
+.avatar
+{
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 70%;
+}
+
+.card-title{
+    font-size:19px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.text-img
+{
+    margin-top: 250px;
+}
+
+.author
+{
+    display: inline-block;
+    padding: 2px 12px;
+    letter-spacing: .2em;
+    font-weight: 700;
+    font-size: .6rem;
+    text-transform: uppercase;
+    margin: 3px;
+}
+.test
+{
+    max-width: 180px;
+    max-height: 180px;
+}
