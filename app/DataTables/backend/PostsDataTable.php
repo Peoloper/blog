@@ -52,6 +52,9 @@ class PostsDataTable extends DataTable
             })
             ->editColumn('title', function($model){
                 return Str::limit($model->title, 30);
+            })
+            ->editColumn('created_at', function($model){
+                return $model->created_at->diffForHumans();
             });
     }
 
