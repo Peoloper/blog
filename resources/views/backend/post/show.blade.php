@@ -5,9 +5,6 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">View Post</h1>
-                </div><!-- /.col -->
-                <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="">Home</a></li>
                         <li class="breadcrumb-item"><a href="">Post list</a></li>
@@ -26,7 +23,7 @@
                         <div class="card-header">
                             <div class="d-flex justify-content-between align-items-center">
                                 <h3 class="card-title">View Post</h3>
-                                <a href="" class="btn btn-primary">Go Back to Post List</a>
+                                <a href="{{route('admin.post.index')}}" class="btn btn-primary">Go Back to Posts List</a>
                             </div>
                         </div>
                         <div class="card-body">
