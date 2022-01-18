@@ -39,7 +39,7 @@
                                         </div>
                                     @endif
                                     <div class="card-body">
-                                        <form action="{{route('admin.category.update',['category' => $category->id])}}" method="POST" enctype="multipart/form-data">
+                                        <form action="{{route('admin.category.update',['category' => $category])}}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             @method('PUT')
                                             <div class="form-group">
@@ -56,7 +56,8 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-4 text-right">
-                                                        <div style="max-width: 200px; max-height: 100px;overflow:hidden; margin-left: auto">
+                                                        <div style="max-width: 300px; max-height:300px;overflow:hidden">
+                                                            <img src="{{$category->photos->first()->path ?? null}}" class="img-fluid" alt="">
                                                         </div>
                                                     </div>
                                                 </div>

@@ -6,11 +6,13 @@ use App\DataTables\backend\CategoriesDataTable;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Traits\PhotoTrait;
 
 class CategoryController extends Controller
 {
+    use PhotoTrait;
+
     /**
      * Display a listing of the resource.
      *
@@ -40,11 +42,14 @@ class CategoryController extends Controller
     public function store(CategoryRequest $request)
     {
         $data = $request->validated();
-        $path = $data['image']->store('products', 'public');
-        $data['slug'] = Str::slug($data['name']);
+
+        $path = $data['image']->store('categories', 'public');
         $data['image'] = $path;
 
+        $category = Category::create($data);
+        $category->photos()->create(['path' => $data['image']]);
 
+        return redirect()->route('admin.category.index');
     }
 
     /**
@@ -76,9 +81,18 @@ class CategoryController extends Controller
      * @param  Category $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(CategoryRequest $request, Category $category)
     {
-        //
+        $data = $request->validated();
+
+        if(!empty($data['image']))
+        {
+            $this->updateImage($category, 'categories', $data);
+        }
+
+        $category->update($data);
+
+        return redirect()->route('admin.category.index');
     }
 
     /**
@@ -89,6 +103,10 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        $category->photos()->delete();
+
+        return response()->json('elo');
     }
+
 }

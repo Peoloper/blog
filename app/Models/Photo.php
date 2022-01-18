@@ -8,4 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Photo extends Model
 {
     use HasFactory;
+
+    protected $fillable =[
+        'path'
+    ];
+
+    public function photoable()
+    {
+        return $this->morphTo();
+    }
+
+//    public function getPathAttribute($value)
+//    {
+//        return asset("storage/{$value}");
+//    }
 }

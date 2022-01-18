@@ -4,6 +4,7 @@ namespace App\Http\Controllers\backend;
 
 use App\DataTables\backend\TagsDataTable;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\TagRequest;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 
@@ -35,9 +36,13 @@ class TagController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TagRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        $tag = Tag::create($data);
+
+        return redirect()->route('admin.tag.index');
     }
 
     /**
@@ -69,9 +74,13 @@ class TagController extends Controller
      * @param  Tag $tag
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tag $tag)
+    public function update(TagRequest $request, Tag $tag)
     {
-        //
+        $data = $request->validated();
+
+        $tag->update($data);
+
+        return redirect()->route('admin.tag.index');
     }
 
     /**
@@ -82,6 +91,7 @@ class TagController extends Controller
      */
     public function destroy(Tag $tag)
     {
-        //
+        $tag->delete();
+        return response()->json('elo');
     }
 }

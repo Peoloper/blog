@@ -39,7 +39,7 @@
                                         </div>
                                     @endif
                                     <div class="card-body">
-                                        <form action="{{route('admin.post.update', [$post->id])}}" method="POST" enctype="multipart/form-data">
+                                        <form action="{{route('admin.post.update',['post' => $post])}}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             @method('PUT')
                                             <div class="form-group">
@@ -89,10 +89,18 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="exampleInputPassword1">Description</label>
+                                                <label for="description">Description</label>
                                                 <textarea name="content" id="content" rows="4" class="form-control"
                                                           placeholder="Enter description">{{$post->content}}</textarea>
                                             </div>
+                                            @can('edit all posts')
+                                            <div class="form-group">
+                                                <label>Published
+                                                    <input type="hidden" name="is_published" value="0"/>
+                                                    <input type="checkbox" name="is_published"  value="1" {{($post->is_published == 1 ? ' checked' : '')}}
+                                                </label>
+                                            </div>
+                                            @endcan
                                             <div class="form-group">
                                                 <button type="submit" class="btn btn-lg btn-primary">Update Post</button>
                                             </div>

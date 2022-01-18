@@ -25,7 +25,7 @@ class PostsDataTable extends DataTable
             ->addColumn('action', function (Post $model) {
                 return view('backend\post.action', compact('model'));
             })
-            ->editColumn('Kategoria', function ($model)
+            ->editColumn('Category', function ($model)
             {
                 return $model->category->name;
             })
@@ -94,11 +94,12 @@ class PostsDataTable extends DataTable
     {
         return [
             Column::make('id'),
-            Column::make('title')->title('Tytuł'),
-            Column::make('content')->title('Treść'),
+            Column::make('title')->title('Title'),
+            Column::make('content')->title('Content'),
             Column::make('User', 'user_id'),
-            Column::make('Kategoria', 'category_id'),
-            Column::make('created_at')->title('Dodano'),
+            Column::make('Category', 'category_id'),
+            Column::make('is_published')->title('Published'),
+            Column::make('created_at')->title('Added'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

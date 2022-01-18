@@ -14,7 +14,12 @@ class TagRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required|string|min:1|max:10']
+            'name' => [
+                'required',
+                'string',
+                'max:10',
+                'unique:tags'
+            ]
         ];
     }
 

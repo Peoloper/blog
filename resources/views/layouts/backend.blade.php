@@ -86,7 +86,7 @@
                         </a>
                     </li>
                     <li class="nav-item mt-auto">
-                        <a href="" class="nav-link">
+                        <a href="{{route('admin.tag.index')}}" class="nav-link">
                             <i class="nav-icon fas fa-tag"></i>
                             <p>
                                 Tags
@@ -101,20 +101,42 @@
                             </p>
                         </a>
                     </li>
-                    <li class="nav-item mt-auto">
-                        <a href="" class="nav-link ">
-                            <i class="nav-icon fas fa-user"></i>
-                            <p>
-                                Users
-                            </p>
-                        </a>
-                    </li>
+                    @hasrole('admin')
+                        <li class="nav-item mt-auto">
+                            <a href="{{route('admin.user.index')}}" class="nav-link ">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>
+                                    Users
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item mt-auto">
+                            <a href="{{route('admin.role.index')}}" class="nav-link ">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>
+                                    Role
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item mt-auto">
+                            <a href="{{route('admin.permission.index')}}" class="nav-link ">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>
+                                    Permission
+                                </p>
+                            </a>
+                        </li>
+                    @endhasrole
                     <li class="nav-item mt-auto">
                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">
                             <i class="nav-icon fas fa-sign-out-alt"></i>
                             <p>
                                 Logout
+
                             </p>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
                         </a>
                     </li>
                 </ul>
@@ -151,5 +173,50 @@
 
 
 @include('sweetalert::alert')
+<script src="{{asset('vendor/sweetalert/sweetalert.all.js')}}"></script>
+<script>
+    $(function () {
+        //ajax setup
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        //delete action
+        $(document).on("click", "#delete", function (e) {
+            e.preventDefault();
+            let link = $(this).attr("href");
+            let table = $(this).data('table');
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.value) {
+                    $.ajax({
+                        url: link,
+                        type: 'DELETE',
+                        data: {
+                            _method: "DELETE"
+                        },
+                        success: function (data) {
+                            console.log(data);
+                            setTimeout(function () {
+                                $(this).parents("tr").remove();
+                                $('#' + table).DataTable().ajax.reload();
+                                return false;
+                            }, 500);
+
+                        }
+                    })
+                }
+            })
+        });
+    })
+</script>
 </body>
 </html>

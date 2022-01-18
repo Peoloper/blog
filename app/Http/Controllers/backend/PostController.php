@@ -4,13 +4,19 @@ namespace App\Http\Controllers\backend;
 
 use App\DataTables\backend\PostsDataTable;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PostRequest;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use App\Http\Traits\PhotoTrait;
+use Illuminate\Support\Facades\Auth;
+
 
 class PostController extends Controller
 {
+    use PhotoTrait;
+
     /**
      * Display a listing of the resource.
      *
@@ -29,6 +35,7 @@ class PostController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', Post::class);
         return view('backend.post.create', [
             'categories' => Category::all(),
             'tags' => Tag::all()
@@ -41,9 +48,20 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
+        $data = $request->validated();
 
+        $path = $data['image']->store('posts', 'public');
+        $data['image'] = $path;
+        $data['user_id'] = Auth::id();
+
+        $post = Post::create($data);
+        $post->tags()->sync($data['tags']);
+        $post->photos()->create(['path' => $data['image']]);
+
+
+        return redirect()->route('admin.post.index');
     }
 
     /**
@@ -65,7 +83,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        toast('Your Post as been submited!','success');
+        $this->authorize('update', $post);
+
         return view('backend.post.edit', [
             'post' => $post,
             'categories' => Category::all(),
@@ -80,9 +99,18 @@ class PostController extends Controller
      * @param  Post $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(PostRequest $request, Post $post)
     {
-        //
+        $data = $request->validated();
+        if(!empty($data['image']))
+        {
+            $this->updateImage($post, 'posts', $data);
+        }
+
+        $post->update($data);
+        $post->tags()->sync($data['tags']);
+
+        return redirect()->route('admin.post.index');
     }
 
     /**
@@ -93,6 +121,9 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $this->authorize('delete', $post);
+
+        $post->delete();
+        return response()->json('elo');
     }
 }

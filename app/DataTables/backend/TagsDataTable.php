@@ -63,7 +63,7 @@ class TagsDataTable extends DataTable
         return [
             Column::make('id'),
             Column::make('name')->title('Tag'),
-            Column::make('created_at')->title('Dodano'),
+            Column::make('created_at')->title('Added'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

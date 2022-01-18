@@ -17,7 +17,8 @@ class PostRequest extends FormRequest
             'title' => [
                 'required',
                 'string',
-                'max: 50'
+                'max: 50',
+                //'unique:posts'
             ],
             'content' => [
                 'required',
@@ -33,7 +34,8 @@ class PostRequest extends FormRequest
                 'max:8'
             ]
             ,
-            'image' => request()->isMethod('put') ? 'nullable|mimes:jpeg,jpg,png,gif,svg|max:8000' : 'required|mimes:jpeg,jpg,png,gif,svg|max:8000'
+            'image' => request()->isMethod('put') ? 'nullable|mimes:jpeg,jpg,png,gif,svg|max:8000' : 'required|mimes:jpeg,jpg,png,gif,svg|max:8000',
+            'is_published' => ['boolean']
         ];
     }
 
