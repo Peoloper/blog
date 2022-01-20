@@ -16,12 +16,17 @@ class UserRequest extends FormRequest
      */
     public function rules()
     {
-        $user = $this->route('user');
-
         return [
-            'name' => request()->isMethod('put') ? 'nullable|string|min:5|max:32' : 'required|string|min:5|max:32',
-            'email' => request()->isMethod('put') ? 'nullable|email|min:5|max:50': 'required|email|min:5|max:50'.Rule::unique('users')->ignore($user),
-            'password' => request()->isMethod('put') ? 'nullable|string|min:8' : 'required|string|min:8|max:50',
+            'name' => request()->isMethod('put')
+                ? 'nullable|string|min:5|max:32|unique:users,name,'.$this->user->id
+                : 'required|string|unique:users|min:5|max:32',
+            'email' => request()->isMethod('put')
+                ? 'required|email|min:5|max:50|unique:users,email,'.$this->user->id
+                : 'required|email|min:5|max:50|unique:users',
+            'password' => request()->isMethod('put')
+                ? 'nullable|string|min:8'
+                : 'required|string|min:8|max:50',
+
             'role' =>[
                 'required',
                 'integer'
