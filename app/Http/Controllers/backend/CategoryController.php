@@ -6,8 +6,9 @@ use App\DataTables\backend\CategoriesDataTable;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
-use Illuminate\Support\Facades\Storage;
 use App\Http\Traits\PhotoTrait;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
@@ -43,11 +44,10 @@ class CategoryController extends Controller
     {
         $data = $request->validated();
 
-        $path = $data['image']->store('categories', 'public');
-        $data['image'] = $path;
+            $filePath = $this->uploadImage($data['image'], 'categories');
 
-        $category = Category::create($data);
-        $category->photos()->create(['path' => $data['image']]);
+            $category = Category::create($data);
+            $category->photos()->create(['path' => $filePath]);
 
         return redirect()->route('admin.category.index');
     }
@@ -87,7 +87,11 @@ class CategoryController extends Controller
 
         if(!empty($data['image']))
         {
-            $this->updateImage($category, 'categories', $data);
+            $this->deleteImage($category);
+
+            $filePath = $this->uploadImage($data['image'], 'categories');
+
+            $category->photos()->update(['path' => $filePath]);
         }
 
         $category->update($data);
@@ -103,10 +107,9 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
+        $this->deleteImage($category);
         $category->delete();
         $category->photos()->delete();
-
-        return response()->json('elo');
     }
 
 }

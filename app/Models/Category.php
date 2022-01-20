@@ -13,7 +13,6 @@ class Category extends Model
 
     protected $fillable = [
         'name',
-        'content'
     ];
 
     public function posts(): HasMany
