@@ -28,14 +28,14 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'admin', 'as'=>'admin.', 'middleware'=>['auth']], function ()
 {
-    Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard',DashboardController::class)->name('dashboard');
 
     Route::resource('post' ,PostController::class);
     Route::resource('category', CategoryController::class);
     Route::resource('tag', TagController::class);
-    Route::resource('user', UserController::class)->middleware('role:admin');
-    Route::resource('role', RoleController::class)->middleware('role:admin');
-    Route::get('/permission', PermissionController::class)->name('permission.index')->middleware('role:admin');
+    Route::resource('user', UserController::class)->middleware('role:Admin');
+    Route::resource('role', RoleController::class)->middleware('role:Admin');
+    Route::get('/permission', PermissionController::class)->name('permission.index')->middleware('role:Admin');
 });
 
 

@@ -2,27 +2,32 @@
 
 namespace App\Http\Traits;
 
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
 
 trait PhotoTrait
 {
-    public function updateImage($model, $name, $data)
+
+    public function uploadImage($image, $folder)
     {
-        $photoxd = null;
+        $extension = $image->getClientOriginalExtension();
+        $originalName = $image->getClientOriginalName();
+        $originalName = sha1($originalName.time());
+        $date = Carbon::now()->format('Y-m-d');
 
-        $path = $data['image']->store($name, 'public');
-        if($path)
+        $fileName = $date.'_'.uniqid().'_'.$originalName.'.'.$extension;
+
+        $path = $image->storeAs($folder, $fileName, 'public');
+
+        return $path;
+    }
+
+
+    public function deleteImage($model)
+    {
+        foreach ($model->photos as $photo)
         {
-
-            foreach ($model->photos as $photo)
-            {
-                $photoxd = $photo->path;
-            }
-
-            Storage::delete($photoxd);
-
-            $data['image'] = $path;
-            $model->photos()->update(['path' => $data['image']]);
+            Storage::disk('public')->delete($photo->path);
         }
     }
 }
