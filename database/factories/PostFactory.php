@@ -21,7 +21,7 @@ class PostFactory extends Factory
 
     public function definition()
     {
-        $title = $this->faker->text(10);
+        $title = $this->faker->unique()->text(10);
         $slug = Str::slug($title);
         return [
             'title' => $title,
@@ -31,7 +31,7 @@ class PostFactory extends Factory
             'updated_at'  => Carbon::now(),
 
             'user_id' => function() {
-                return User::factory()->create()->id;
+                return User::all()->random()->id;
             },
             'category_id' => function(){
                 return Category::factory()->create()->id;

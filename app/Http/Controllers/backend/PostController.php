@@ -52,14 +52,11 @@ class PostController extends Controller
     {
         $data = $request->validated();
 
-        $path = $data['image']->store('posts', 'public');
-        $data['image'] = $path;
-        $data['user_id'] = Auth::id();
+        $filePath = $this->uploadImage($data['image'], 'posts');
 
         $post = Post::create($data);
         $post->tags()->sync($data['tags']);
-        $post->photos()->create(['path' => $data['image']]);
-
+        $post->photos()->create(['path' => $filePath]);
 
         return redirect()->route('admin.post.index');
     }
@@ -102,9 +99,14 @@ class PostController extends Controller
     public function update(PostRequest $request, Post $post)
     {
         $data = $request->validated();
+
         if(!empty($data['image']))
         {
-            $this->updateImage($post, 'posts', $data);
+            $this->deleteImage($post);
+
+            $filePath = $this->uploadImage($data['image'], 'posts');
+
+            $post->photos()->update(['path' => $filePath]);
         }
 
         $post->update($data);
@@ -123,7 +125,8 @@ class PostController extends Controller
     {
         $this->authorize('delete', $post);
 
+        $this->deleteImage($post);
         $post->delete();
-        return response()->json('elo');
+        $post->photos()->delete();
     }
 }

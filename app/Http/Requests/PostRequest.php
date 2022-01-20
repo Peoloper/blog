@@ -14,12 +14,9 @@ class PostRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => [
-                'required',
-                'string',
-                'max: 50',
-                //'unique:posts'
-            ],
+            'title' => request()->isMethod('put')
+                ? 'required|string|min:5|max:50|unique:posts,title,'.$this->post->id
+                : 'required|string|unique:posts|min:5|max:50',
             'content' => [
                 'required',
                 'string',
@@ -31,10 +28,13 @@ class PostRequest extends FormRequest
             ],
             'tags' => [
                 'required',
-                'max:8'
+                'array'
             ]
             ,
-            'image' => request()->isMethod('put') ? 'nullable|mimes:jpeg,jpg,png,gif,svg|max:8000' : 'required|mimes:jpeg,jpg,png,gif,svg|max:8000',
+            'image' => request()->isMethod('put')
+                ? 'nullable|mimes:jpeg,jpg,png,gif,svg|max:8000'
+                : 'required|mimes:jpeg,jpg,png,gif,svg|max:8000',
+
             'is_published' => ['boolean']
         ];
     }
