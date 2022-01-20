@@ -39,7 +39,6 @@ class TagController extends Controller
     public function store(TagRequest $request)
     {
         $data = $request->validated();
-
         $tag = Tag::create($data);
 
         return redirect()->route('admin.tag.index');
@@ -92,6 +91,5 @@ class TagController extends Controller
     public function destroy(Tag $tag)
     {
         $tag->delete();
-        return response()->json('elo');
     }
 }
