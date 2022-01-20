@@ -101,7 +101,7 @@
                             </p>
                         </a>
                     </li>
-                    @hasrole('admin')
+                    @hasrole('Admin')
                         <li class="nav-item mt-auto">
                             <a href="{{route('admin.user.index')}}" class="nav-link ">
                                 <i class="nav-icon fas fa-user"></i>

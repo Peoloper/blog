@@ -24,7 +24,7 @@
                     <div class="small-box bg-info">
                         <div class="inner">
                             <h3></h3>
-
+                            {{$post}}
                             <p>Posts</p>
                         </div>
                         <div class="icon">
@@ -37,7 +37,7 @@
                     <div class="small-box bg-success">
                         <div class="inner">
                             <h3></h3>
-
+                            {{$category}}
                             <p>Categories</p>
                         </div>
                         <div class="icon">
@@ -50,7 +50,7 @@
                     <div class="small-box bg-warning">
                         <div class="inner">
                             <h3></h3>
-
+                            {{$tag}}
                             <p>Tags</p>
                         </div>
                         <div class="icon">
@@ -62,7 +62,7 @@
                     <div class="small-box bg-danger">
                         <div class="inner">
                             <h3></h3>
-
+                            {{$user}}
                             <p>Users</p>
                         </div>
                         <div class="icon">

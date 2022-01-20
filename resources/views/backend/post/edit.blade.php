@@ -93,7 +93,7 @@
                                                 <textarea name="content" id="content" rows="4" class="form-control"
                                                           placeholder="Enter description">{{$post->content}}</textarea>
                                             </div>
-                                            @can('edit all posts')
+                                            @can('publish posts')
                                             <div class="form-group">
                                                 <label>Published
                                                     <input type="hidden" name="is_published" value="0"/>
