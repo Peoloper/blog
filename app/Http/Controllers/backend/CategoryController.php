@@ -7,8 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use App\Http\Traits\PhotoTrait;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
+
 
 class CategoryController extends Controller
 {
@@ -44,11 +43,12 @@ class CategoryController extends Controller
     {
         $data = $request->validated();
 
-            $filePath = $this->uploadImage($data['image'], 'categories');
+        $filePath = $this->uploadImage($data['image'], 'categories', 400, 200);
 
-            $category = Category::create($data);
-            $category->photos()->create(['path' => $filePath]);
+        $category = Category::create($data);
+        $category->photos()->create(['path' => $filePath]);
 
+        toast('The category has been added','success');
         return redirect()->route('admin.category.index');
     }
 
@@ -87,15 +87,15 @@ class CategoryController extends Controller
 
         if(!empty($data['image']))
         {
-            $this->deleteImage($category);
+            $this->deleteImage($category, 'categories');
 
-            $filePath = $this->uploadImage($data['image'], 'categories');
-
-            $category->photos()->update(['path' => $filePath]);
+            $filePath = $this->uploadImage($data['image'], 'categories', 400, 200);
+           $category->photos()->update(['path' => $filePath]);
         }
 
         $category->update($data);
 
+        toast('The category has been updated','success');
         return redirect()->route('admin.category.index');
     }
 
@@ -107,7 +107,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        $this->deleteImage($category);
+        $this->deleteImage($category, 'categories');
         $category->delete();
         $category->photos()->delete();
     }

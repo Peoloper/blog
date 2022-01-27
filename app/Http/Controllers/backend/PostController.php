@@ -8,9 +8,9 @@ use App\Http\Requests\PostRequest;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
-use Illuminate\Http\Request;
+use App\Models\User;
+use App\Notifications\NewPostNotification;
 use App\Http\Traits\PhotoTrait;
-use Illuminate\Support\Facades\Auth;
 
 
 class PostController extends Controller
@@ -52,12 +52,19 @@ class PostController extends Controller
     {
         $data = $request->validated();
 
-        $filePath = $this->uploadImage($data['image'], 'posts');
+        $filePath = $this->uploadImage($data['image'], 'posts', 600, 300);
 
         $post = Post::create($data);
         $post->tags()->sync($data['tags']);
         $post->photos()->create(['path' => $filePath]);
 
+        $admin = User::whereHas('roles', function ($query) {
+            $query->where('id', 3);
+        })->get();
+
+       \Notification::send($admin, new NewPostNotification($post));
+
+        toast('Your post has been added','success');
         return redirect()->route('admin.post.index');
     }
 
@@ -102,9 +109,9 @@ class PostController extends Controller
 
         if(!empty($data['image']))
         {
-            $this->deleteImage($post);
+            $this->deleteImage($post,'posts');
 
-            $filePath = $this->uploadImage($data['image'], 'posts');
+            $filePath = $this->uploadImage($data['image'], 'posts', 600, 300);
 
             $post->photos()->update(['path' => $filePath]);
         }
@@ -112,6 +119,7 @@ class PostController extends Controller
         $post->update($data);
         $post->tags()->sync($data['tags']);
 
+        toast('Your post has been updated','success');
         return redirect()->route('admin.post.index');
     }
 
@@ -125,7 +133,7 @@ class PostController extends Controller
     {
         $this->authorize('delete', $post);
 
-        $this->deleteImage($post);
+        $this->deleteImage($post,'posts');
         $post->delete();
         $post->photos()->delete();
     }

@@ -6,7 +6,6 @@ use App\DataTables\backend\UsersDataTable;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 
@@ -63,8 +62,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        $roles = Role::all();
-        return view('backend.user.show', ['user' => $user, 'roles' => $roles ]);
+        return view('backend.user.show', ['user' => $user]);
     }
 
     /**
@@ -89,13 +87,15 @@ class UserController extends Controller
      */
     public function update(UserRequest $request, User $user)
     {
+        $data = $request->validated();
+
         $user->update([
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'password' => Hash::make($request['password'])
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password'])
         ]);
 
-       $user->syncRoles($request['role']);
+       $user->syncRoles($data['role']);
 
         return redirect()->route('admin.user.index');
     }
