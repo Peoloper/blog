@@ -65,8 +65,8 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-4 text-right">
-                                                        <div style="max-width: 200px; max-height: 100px;overflow:hidden; margin-left: auto">
-                                                            <img src="" class="img-fluid" alt="">
+                                                        <div>
+                                                            <img src="{{$post->photos->first()->path ?? null}}" class="img-fluid" alt="">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -90,7 +90,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="description">Description</label>
-                                                <textarea name="content" id="content" rows="4" class="form-control"
+                                                <textarea name="content" id="content" rows="4" class="form-control ckeditor"
                                                           placeholder="Enter description">{{$post->content}}</textarea>
                                             </div>
                                             @can('publish posts')
@@ -102,7 +102,7 @@
                                             </div>
                                             @endcan
                                             <div class="form-group">
-                                                <button type="submit" class="btn btn-lg btn-primary">Update Post</button>
+                                                <button type="submit" class="btn btn-lg btn-primary float-right">Update</button>
                                             </div>
                                         </form>
                                     </div>

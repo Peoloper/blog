@@ -26,15 +26,6 @@
                         <div class="card-header">
                             <div class="d-flex justify-content-between align-items-center">
                                 <h3 class="card-title">Create Category</h3>
-                                @if ($errors->any())
-                                    <div class="alert alert-danger">
-                                        <ul>
-                                            @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                @endif
                                 <a href="{{route('admin.tag.index')}}" class="btn btn-primary">Go Back to Category List</a>
                             </div>
                         </div>
@@ -61,7 +52,7 @@
                                         </div>
 
                                         <div class="card-footer">
-                                            <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+                                            <button type="submit" class="btn btn-lg btn-primary float-right">Create</button>
                                         </div>
                                     </form>
                                 </div>

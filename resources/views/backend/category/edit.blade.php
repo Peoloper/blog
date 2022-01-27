@@ -63,7 +63,7 @@
                                                 </div>
                                             </div>
                                             <div class="card-footer">
-                                                <button type="submit" class="btn btn-lg btn-primary">Update Category</button>
+                                                <button type="submit" class="btn btn-lg btn-primary float-right">Update</button>
                                             </div>
                                         </form>
                                     </div>

@@ -32,6 +32,7 @@
                                 <tr>
                                     <th style="width: 200px">Image</th>
                                     <td>
+
                                         <div style="max-width: 300px; max-height:300px;overflow:hidden">
                                             <img src="{{$post->photos->first()->path ?? null}}" class="img-fluid" alt="">
                                         </div>
@@ -59,7 +60,7 @@
                                 </tr>
                                 <tr>
                                     <th style="width: 200px">Description</th>
-                                    <td>{{$post->content}}</td>
+                                    <td> {!! $post->content !!}</td>
                                 </tr>
                                 </tbody>
                             </table>

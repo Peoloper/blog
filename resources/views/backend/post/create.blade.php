@@ -77,13 +77,13 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputPassword1">Description</label>
-                                                <textarea name="content" id="content" rows="4" class="form-control"
+                                                <textarea name="content" id="content" rows="4" class="form-control ckeditor"
                                                           placeholder="Enter content"></textarea>
                                             </div>
                                         </div>
 
                                         <div class="card-footer">
-                                            <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+                                            <button type="submit" class="btn btn-lg btn-primary float-right">Create</button>
                                         </div>
                                     </form>
                                 </div>

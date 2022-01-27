@@ -46,7 +46,7 @@
                                         </td>
                                         <td class="d-flex">
                                             <a href="{{route('admin.role.edit', ['role' => $role])}}"class="btn btn-sm btn-primary mr-1"> <i class="fas fa-edit"></i> </a>
-                                            <form action="{{route('admin.role.destroy', ['role' => $role])}}" id="delete" class="mr-1" method="POST">
+                                            <form action="{{route('admin.role.destroy', ['role' => $role])}}"  id="deleteRole" class="mr-1" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-sm btn-danger">  <i class="fas fa-trash"></i> </button>
@@ -65,4 +65,27 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $(function () {
+            $(document).on("click", "#deleteRole", function (e) {
+                var form =  $(this).closest("form");
+                e.preventDefault();
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.value)
+                    {
+                        form.submit();
+                    }
+                })
+            });
+        })
+    </script>
 @endsection

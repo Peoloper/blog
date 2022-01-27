@@ -49,11 +49,11 @@
                                                 <input type="name" name="name" class="form-control" id="name" placeholder="Enter name">
                                             </div>
                                             <div class="form-group">
-                                                <label for="email">User email</label>
+                                                <label for="email">Email</label>
                                                 <input type="email" name="email" class="form-control" id="email" placeholder="Enter email">
                                             </div>
                                             <div class="form-group">
-                                                <label for="password">User password</label>
+                                                <label for="password">Password</label>
                                                 <input type="password" name="password" class="form-control" id="password" placeholder="Enter password">
                                             </div>
                                             <div class="form-group">
@@ -67,7 +67,7 @@
                                             </div>
                                         </div>
                                         <div class="card-footer">
-                                            <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+                                            <button type="submit" class="btn btn-lg btn-primary float-right">Create</button>
                                         </div>
                                     </form>
                                 </div>

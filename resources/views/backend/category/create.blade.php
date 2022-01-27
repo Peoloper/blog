@@ -59,7 +59,7 @@
                                         </div>
 
                                         <div class="card-footer">
-                                            <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+                                            <button type="submit" class="btn btn-lg btn-primary float-right">Create</button>
                                         </div>
                                     </form>
                                 </div>

@@ -47,11 +47,11 @@
                                                 <input type="name" name="name" class="form-control" id="name" placeholder="Enter name" value="{{ $user->name }} ">
                                             </div>
                                             <div class="form-group">
-                                                <label for="email">User email</label>
+                                                <label for="email">Email</label>
                                                 <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" value="{{ $user->email }} ">
                                             </div>
                                             <div class="form-group">
-                                                <label for="password">User password <small>(Enter password if you want change.)</small></label>
+                                                <label for="password">Password <small>(Enter password if you want change.)</small></label>
                                                 <input type="password" name="password" class="form-control" id="password" placeholder="Enter password">
                                             </div>
                                             <div class="form-group">
@@ -67,7 +67,7 @@
                                             </div>
                                         </div>
                                         <div class="card-footer">
-                                            <button type="submit" class="btn btn-lg btn-primary">Update User</button>
+                                            <button type="submit" class="btn btn-lg btn-primary float-right">Update</button>
                                         </div>
                                     </form>
                                 </div>
