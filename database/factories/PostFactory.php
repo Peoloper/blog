@@ -29,6 +29,7 @@ class PostFactory extends Factory
             'content' => $this->faker->text(300),
             'created_at'  => Carbon::now(),
             'updated_at'  => Carbon::now(),
+            'is_published' => 1,
 
             'user_id' => function() {
                 return User::all()->random()->id;

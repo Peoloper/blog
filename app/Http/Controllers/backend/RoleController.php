@@ -4,7 +4,6 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RoleRequest;
-use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
@@ -17,9 +16,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-         $roles = Role::with('permissions')->get();
-
-        return view('backend.role.index')->with('roles', $roles);
+        return view('backend.role.index', ['roles' => Role::with('permissions')->get()]);
     }
 
     /**
@@ -47,7 +44,8 @@ class RoleController extends Controller
         $role = Role::create(['name' => $data['name']]);
         $role->syncPermissions($data['permissions']);
 
-        return view('backend.role.index');
+        toast('The role has been added','success');
+        return redirect()->route('admin.role.index');
     }
 
     /**
@@ -69,9 +67,10 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        $permissions = Permission::all();
-
-        return view('backend.role.edit', ['role' => $role, 'permissions' => $permissions]);
+        return view('backend.role.edit', [
+            'role' => $role,
+            'permissions' => Permission::all()
+        ]);
     }
 
     /**
@@ -88,6 +87,7 @@ class RoleController extends Controller
         $role->update(['name' => $data['name']]);
         $role->syncPermissions($data['permissions']);
 
+        toast('The role has been updated','success');
         return redirect()->route('admin.role.index');
     }
 
@@ -100,7 +100,6 @@ class RoleController extends Controller
     public function destroy(Role $role)
     {
         $role->delete();
-
-        return view('backend.role.index');
+        return redirect()->route('admin.role.index');
     }
 }

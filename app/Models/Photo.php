@@ -18,8 +18,8 @@ class Photo extends Model
         return $this->morphTo();
     }
 
-//    public function getPathAttribute($value)
-//    {
-//        return asset("storage/{$value}");
-//    }
+    public function getPathAttribute($value)
+    {
+        return asset("images/{$value}");
+    }
 }

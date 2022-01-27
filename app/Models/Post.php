@@ -6,11 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Notifications\Notifiable;
 
 class Post extends Model
 {
     use HasFactory;
+    use Notifiable;
 
     protected $fillable = [
         'title',
@@ -38,5 +41,10 @@ class Post extends Model
     public function photos(): MorphMany
     {
         return $this->morphMany(Photo::class, 'photoable');
+    }
+
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class);
     }
 }
