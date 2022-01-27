@@ -1,0 +1,18 @@
+<?php
+
+namespace App\Http\Controllers\frontend;
+
+use App\Http\Controllers\Controller;
+use App\Models\Post;
+use Illuminate\Http\Request;
+
+class HomeController extends Controller
+{
+    public function index()
+    {
+        return view('frontend.index', [
+            'recentPosts' => Post::with(['photos', 'user.photos', 'category'])->where('is_published', 1)
+                ->orderBy('created_at', 'ASC')->take(9)->get()
+        ]);
+    }
+}
