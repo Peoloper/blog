@@ -12,7 +12,7 @@ class HomeController extends Controller
     {
         return view('frontend.index', [
             'recentPosts' => Post::with(['photos', 'user.photos', 'category'])->where('is_published', 1)
-                ->orderBy('created_at', 'ASC')->take(9)->get()
+                ->orderBy('created_at', 'DESC')->take(9)->get()
         ]);
     }
 }

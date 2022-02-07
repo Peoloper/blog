@@ -23,7 +23,7 @@ class PostController extends Controller
     public function posts()
     {
         return view('frontend.posts', [
-            'posts' => Post::with(['photos', 'category', 'user'])->paginate(15)]
+            'posts' => Post::with(['photos', 'category', 'user'])->where('is_published', 1)->paginate(15)]
         );
     }
 }
