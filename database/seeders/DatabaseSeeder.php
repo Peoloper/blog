@@ -15,9 +15,13 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         $this->call([
-        //   RolesAndPermissionsTableSeeder::class,
-          //  UserTableSeeder::class,
+          // RolesAndPermissionsTableSeeder::class,
+           //UserTableSeeder::class,
             PhotosTableSeeder::class
             ]);
     }
 }
+
+//PostTag::withoutEvents(function () {
+//    return PostTag::factory()->count(10)->create();
+//});
