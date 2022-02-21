@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\Category;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 
 class CategoryObserver
@@ -16,6 +17,10 @@ class CategoryObserver
     public function creating(Category  $category)
     {
         $category->slug = Str::slug($category->name);
+    }
+    public function created(Category  $category)
+    {
+        Cache::forget('categories');
     }
 
     public function updating(Category  $category)
@@ -31,7 +36,7 @@ class CategoryObserver
      */
     public function updated(Category $category)
     {
-        //
+        Cache::forget('categories');
     }
 
     /**
@@ -42,7 +47,7 @@ class CategoryObserver
      */
     public function deleted(Category $category)
     {
-        //
+        Cache::forget('categories');
     }
 
     /**
