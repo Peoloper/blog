@@ -7,14 +7,14 @@
                     <div class="group-card">
                         <img src="{{$post->photos->first()->path ?? null}}" alt="" class="card-img">
                         <span class="post-category text-white bg-secondary mb-3">{{$post->category->name ?? null}}</span>
-                        <h2>{{Str::limit($post->title, 20)}}</h2>
+                        <h2 class="wrapText">{{Str::limit($post->title, 20)}}</h2>
                         <div class="align-items-center text-left">
                             <figure class="author-figure float-left">
                                 <img src="{{$post->user->photos->first()->path ?? null}}" alt="Image" class=" avatar img-fluid">
                             </figure>
                             <span class="d-inline-block mt-1">By {{$post->user->name}} <a href="#"></a></span>
                             <span>&nbsp;-&nbsp;{{$post->created_at->diffForHumans()}} </span>
-                            <p>{{Str::limit(strip_tags($post->content, 100))}} </p>
+                            <p class="wrapText">{{Str::limit(strip_tags($post->content, 100))}} </p>
                             <p><a href="{{route('post',  $post->slug)}}">Read More</a></p>
                         </div>
                     </div>

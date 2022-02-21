@@ -4,7 +4,7 @@
                 <div class="row justify-content-center">
                     <div class="col-md-8 col-lg-8">
                         <div class="text-center">
-                            <h1 class="mb-4">{{$post->title}}</a></h1>
+                            <h1 class="mb-4 wrapText">{{$post->title}}</a></h1>
                             <span class="post-category text-white bg-info mb-3">{{$post->category->name}}</span>
                             <div class="post-meta align-items-center text-center">
                                 <figure class="avatar mt-4 d-inline-block">
@@ -21,7 +21,7 @@
 
     <div class="container mt-4" id="app">
         <div class="row">
-            <div class="col-md-10 col-lg-8">
+            <div class="col-md-10 col-lg-8 wrapText">
                 <div>
                     {!! $post->content !!}
                 </div>

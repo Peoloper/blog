@@ -7,7 +7,7 @@
                     <div class="group-card">
                         <img src="{{$post->photos->first()->path ?? null}}" alt="" class="card-img-top">
                         <span class="post-category text-white bg-secondary mb-3">{{$post->category->name ?? null}}</span>
-                        <h2>{{$post->title}}</h2>
+                        <h2 class="wrapText">{{Str::limit($post->title, 20)}}</h2>
                         <div class="align-items-center text-left">
                             <figure class="author-figure float-left">
                                 <img src="{{$post->user->photos->first()->path ?? null}}" alt="Image" class=" avatar img-fluid">
