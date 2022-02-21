@@ -75,7 +75,10 @@ class UserController extends Controller
     {
         $roles = Role::all();
 
-        return view('backend.user.edit', ['user' => $user,'roles' => $roles]);
+        return view('backend.user.edit', [
+            'user' => $user,
+            'roles' => $roles
+        ]);
     }
 
     /**

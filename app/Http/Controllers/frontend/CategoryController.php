@@ -10,15 +10,20 @@ class CategoryController extends Controller
 {
     public function category()
     {
+        $categories = cache()->remember('categories', today()->endOfDay(), function ()
+        {
+            return Category::with('posts', 'photos')->get();
+        });
+
         return view('frontend.category',[
-                'categories' => Category::with('posts')->get()]
+                'categories' => $categories]
         );
     }
 
     public function categoryPost(string $slug)
     {
         $category = Category::where('name', $slug)->first();
-        $posts = $category->posts()->with(['photos','user', 'category'])->paginate(15);
+        $posts = $category->posts()->with(['photos','user', 'category'])->get();
 
         return view('frontend.categoryPost', ['posts' => $posts]);
     }

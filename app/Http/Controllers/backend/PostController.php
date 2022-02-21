@@ -53,7 +53,6 @@ class PostController extends Controller
         $data = $request->validated();
 
         $filePath = $this->uploadImage($data['image'], 'posts', 600, 300);
-
         $post = Post::create($data);
         $post->tags()->sync($data['tags']);
         $post->photos()->create(['path' => $filePath]);

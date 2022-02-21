@@ -16,7 +16,6 @@ class PostController extends Controller
             'post' => Post::where('slug',$slug)->first(),
             'categories' => Category::withCount('posts')->get(),
             'tags' => Tag::all(),
-            //'comments' => Comment::where('post_id',$id)->get()
         ]);
     }
 
