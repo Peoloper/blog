@@ -34,8 +34,8 @@ trait PhotoTrait
         foreach ($model->photos as $photo)
         {
             $file_name = basename($photo->path);
-            $test = public_path().'/images/'.$folder.'/'.$file_name;
-            File::delete($test);
+            $path = public_path().'/images/'.$folder.'/'.$file_name;
+            File::delete($path);
         }
     }
 }
