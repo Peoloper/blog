@@ -13,15 +13,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+
         $this->call([
-          // RolesAndPermissionsTableSeeder::class,
-           //UserTableSeeder::class,
-            PhotosTableSeeder::class
+           RolesAndPermissionsTableSeeder::class, //1
+           UserTableSeeder::class, //1
+            //PhotosTableSeeder::class //3
             ]);
     }
 }
 
+//2
+
 //PostTag::withoutEvents(function () {
-//    return PostTag::factory()->count(10)->create();
+//    return PostTag::factory()->count(5)->create();
 //});

@@ -20,30 +20,30 @@ class PhotosTableSeeder extends Seeder
     public function run()
     {
 
-        for ($i = 0; $i < 10; $i++)
+        for ($i = 1; $i <= 10; $i++)
         {
             DB::table('photos')->insert([
                 'photoable_type' => 'App\Models\Category',
-                'photoable_id' => Category::all()->unique()->random()->id,
-                'path' => 'categories/category.png'
+                'photoable_id' => $i,
+                'path' => 'categories/'.$i.'.png'
             ]);
         }
 
-        for ($i = 0; $i < 3; $i++)
+        for ($i = 1; $i <= 3; $i++)
         {
             DB::table('photos')->insert([
                 'photoable_type' => 'App\Models\User',
-                'photoable_id' => User::all()->unique()->random()->id,
-                'path' => 'users/user.png'
+                'photoable_id' => $i,
+                'path' => 'users/'.$i.'.png'
             ]);
         }
 
-        for($i = 0; $i < 10; $i++)
+        for($i = 1; $i <= 10; $i++)
         {
             DB::table('photos')->insert([
                 'photoable_type' => 'App\Models\Post',
-                'photoable_id' => Post::all()->unique()->random()->id,
-                'path' => 'posts/post.png'
+                'photoable_id' => $i,
+                'path' => 'posts/'.$i.'.png'
             ]);
         }
     }

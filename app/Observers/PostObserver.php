@@ -24,6 +24,7 @@ class PostObserver
     public function updating(Post $post)
     {
         $post->slug = Str::slug($post->title);
+        Cache::forget('posts');
     }
     /**
      * Handle the Post "updated" event.
