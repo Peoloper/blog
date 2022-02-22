@@ -1,4 +1,11 @@
-<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js">
-<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js">
-<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+<script src="{{asset('asset/plugins/datatable/js/jquery.dataTables.min.js')}}"></script>
+<script src ="{{asset('backend/js/dataTablesDelete.js')}}"></script>
+
+<link rel="stylesheet" href="{{asset('asset/plugins/datatable/css/jquery.dataTables.css')}}">
+<link rel="stylesheet" href="{{asset('asset/plugins/datatable/js/jquery.dataTables.min.js')}}">
+<link rel="stylesheet" href="{{asset('asset/plugins/datatable/js/dataTables.bootstrap5.min.js')}}">
+
+
+
+
 

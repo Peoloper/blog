@@ -33,7 +33,7 @@
                                         <th style="width: 200px">Image</th>
                                         <td>
                                             <div style="max-width: 300px; max-height:300px;overflow:hidden">
-                                                <img src="" class="img-fluid" alt="">
+                                                <img src="{{$user->photos->first()->path ?? null}}" class="img-fluid" alt="">
                                             </div>
                                         </td>
                                     </tr>

@@ -8,8 +8,8 @@
     <title>Admin Panel</title>
 
     @include('layouts.partials.css')
-    @include('layouts.partials.dataTables')
     @include('layouts.partials.script')
+    @include('layouts.partials.dataTables')
 
 
 </head>
