@@ -23,11 +23,12 @@ class CommentRequest extends FormRequest
             'comment' => [
                 'required',
                 'string',
-                'max:100'
+                'max:200'
             ],
-            'post_id' =>
-            'required',
-            'integer'
+            'post_id' => [
+                'required',
+                'integer'
+            ]
         ];
     }
 

@@ -34,7 +34,7 @@
                         @endforeach
                     </p>
                 </div>
-                <get-comments :postid="{{$post->id}}"/>
+                <comments :postid="{{$post->id}}"/>
             </div>
             <div class="col-md-12 col-lg-4">
                 <h3>Categories</h3>

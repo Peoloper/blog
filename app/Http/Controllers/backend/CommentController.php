@@ -13,11 +13,6 @@ class CommentController extends Controller
     public function store(CommentRequest $request)
     {
         $comment = Comment::create($request->validated());
-
-        if($request->validated())
-        {
-            return response()->json($request->messages());
-        }
     }
 
     public function getComments(Post $post)
