@@ -27,7 +27,7 @@ class ProfileController extends Controller
     {
         $this->authorize('update', $profile);
 
-        $data = $request->validated();
+        $data = array_filter($request->validated());
 
         if(!empty($data['image']))
         {
@@ -38,11 +38,7 @@ class ProfileController extends Controller
             $profile->photos()->update(['path' => $filePath]);
         }
 
-        $profile->update([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password'])
-        ]);
+        $profile->update($data);
 
         toast('Your profile has been updated','success');
         return redirect()->route('admin.profile.index');
