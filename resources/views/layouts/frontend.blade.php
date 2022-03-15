@@ -22,6 +22,16 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
             <ul class="navbar-nav ">
+                @guest
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{route('login')}}">Sign in</a>
+                    </li>
+                @endguest
+                @auth
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{route('admin.dashboard')}}">Panel</a>
+                    </li>
+                @endauth
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{route('posts')}}">Posts</a>
                 </li>
