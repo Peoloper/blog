@@ -24,7 +24,6 @@ class PostObserver
     public function updating(Post $post)
     {
         $post->slug = Str::slug($post->title);
-        Cache::forget('posts');
     }
     /**
      * Handle the Post "updated" event.
@@ -34,7 +33,7 @@ class PostObserver
      */
     public function updated(Post $post)
     {
-        Cache::forget('posts');
+
     }
 
     /**
@@ -45,7 +44,7 @@ class PostObserver
      */
     public function deleted(Post $post)
     {
-        Cache::forget('posts');
+
     }
 
     /**
