@@ -21,7 +21,7 @@
 
     <div class="container mt-4" id="app">
         <div class="row">
-            <div class="col-md-10 col-lg-8 wrapText">
+            <div class="col-md-8 col-sm-8 col-lg-8 wrapText">
                 <div>
                     {!! $post->content !!}
                 </div>
@@ -34,26 +34,29 @@
                         @endforeach
                     </p>
                 </div>
-                <comments :postid="{{$post->id}}"/>
+                <div>
+                    <comments :postid="{{$post->id}}"/>
+                </div>
             </div>
-            <div class="col-md-12 col-lg-4">
-                <h3>Categories</h3>
-                <ul>
-                    @foreach($categories as $category)
-                        <li>
-                            <a href="{{route('categoryPost', ['slug' => $category->name])}}"> {{$category->name}}
-                                <span>{{$category->posts_count}}</span>
-                            </a>
-                        </li>
-                    @endforeach
-                </ul>
+            <div class="col-md-4 col-sm-4 col-lg-4 text-center">
+                    <h3>Categories</h3>
+                    <ul class="text-right list-inline">
+                        @foreach($categories as $category)
+                            <li>
+                                <a href="{{route('categoryPost', ['slug' => $category->name])}}"> {{$category->name}}
+                                    <span>{{$category->posts_count}}</span>
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
 
-                <h3>Tags</h3>
-                <ul>
-                    @foreach($tags as $tag)
-                        <li>{{$tag->name}}</li>
-                    @endforeach
-                </ul>
+                    <h3>Tags</h3>
+                <ul class="text-right list-inline">
+                        @foreach($tags as $tag)
+                            <li>{{$tag->name}}</li>
+                        @endforeach
+                    </ul>
+
             </div>
         </div>
     </div>

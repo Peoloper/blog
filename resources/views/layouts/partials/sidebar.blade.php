@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary">
     <!-- Brand Logo -->
-    <a href="" class="brand-link">
+    <a href="{{route('admin.dashboard')}}" class="brand-link">
         <span class="brand-text font-weight-light">Dashboard</span>
     </a>
 
@@ -31,7 +31,7 @@
                 </li>
                 <li class="nav-item mt-auto">
                     <a href="{{route('admin.category.index')}}" class="nav-link ">
-                        <i class="nav-icon fas fa-tags"></i>
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Categories
                         </p>
@@ -56,7 +56,7 @@
                 @hasrole('Admin')
                     <li class="nav-item mt-auto">
                         <a href="{{route('admin.user.index')}}" class="nav-link ">
-                            <i class="nav-icon fas fa-user"></i>
+                            <i class="nav-icon fas fa-users"></i>
                             <p>
                                 Users
                             </p>
@@ -64,24 +64,24 @@
                     </li>
                     <li class="nav-item mt-auto">
                         <a href="{{route('admin.role.index')}}" class="nav-link ">
-                            <i class="nav-icon fas fa-user"></i>
+                            <i class="nav-icon fas fa-user-shield"></i>
                             <p>
-                                Role
+                                Roles
                             </p>
                         </a>
                     </li>
                     <li class="nav-item mt-auto">
                         <a href="{{route('admin.permission.index')}}" class="nav-link ">
-                            <i class="nav-icon fas fa-user"></i>
+                            <i class="nav-icon fas fa-key"></i>
                             <p>
-                                Permission
+                                Permissions
                             </p>
                         </a>
                     </li>
                 @endhasrole
                 <li class="nav-item mt-auto">
                     <a href="{{route('admin.profile.index')}}" class="nav-link">
-                        <i class="nav-icon fas fa-pen-square"></i>
+                        <i class="nav-icon fa fa-edit"></i>
                         <p>
                             Profile
                         </p>
