@@ -10,13 +10,11 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $recentPosts =  cache()->remember('posts', today()->endOfDay(), function ()
-           {
-               return Post::with(['photos', 'user.photos', 'category'])->where('is_published', 1)
-                   ->orderBy('created_at', 'DESC')
-                   ->take(9)
-                   ->get();
-           });
+        $recentPosts = Post::with(['photos', 'user.photos', 'category'])
+            ->where('is_published', 1)
+            ->orderBy('created_at', 'DESC')
+            ->take(9)
+            ->get();
 
         return view('frontend.index', [
             'recentPosts' => $recentPosts
