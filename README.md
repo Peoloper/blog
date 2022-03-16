@@ -63,6 +63,10 @@ Run the database seeder
 
     php artisan db:seed
 
+Run to generate a secret key
+
+    php artisan key:generate
+
 Start the local development server
 
     php artisan serve
