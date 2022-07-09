@@ -7,8 +7,8 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('admin.tag.index') }}">Tags list</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Strona główna</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.tag.index') }}">Tagi</a></li>
                         <li class="breadcrumb-item active">Create Tag</li>
                     </ol>
                 </div><!-- /.col -->
@@ -25,8 +25,8 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="d-flex justify-content-between align-items-center">
-                                <h3 class="card-title">Create Category</h3>
-                                <a href="{{route('admin.tag.index')}}" class="btn btn-primary">Go Back to Category List</a>
+                                <h3 class="card-title">Dodaj tag</h3>
+                                <a href="{{route('admin.tag.index')}}" class="btn btn-primary">Powrót</a>
                             </div>
                         </div>
                         <div class="card-body p-0">
@@ -46,13 +46,13 @@
                                         @csrf
                                         <div class="card-body">
                                             <div class="form-group">
-                                                <label for="name">Tag name</label>
-                                                <input type="name" name="name" class="form-control" id="name" placeholder="Enter name">
+                                                <label for="name">Nazwa</label>
+                                                <input type="name" name="name" class="form-control" id="name" placeholder="Podaj nazwę">
                                             </div>
                                         </div>
 
                                         <div class="card-footer">
-                                            <button type="submit" class="btn btn-lg btn-primary float-right">Create</button>
+                                            <button type="submit" class="btn btn-lg btn-primary float-right">Dodaj</button>
                                         </div>
                                     </form>
                                 </div>

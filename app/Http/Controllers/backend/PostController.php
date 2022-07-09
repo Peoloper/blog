@@ -63,7 +63,7 @@ class PostController extends Controller
 
        \Notification::send($admin, new NewPostNotification($post));
 
-        toast('Your post has been added','success');
+        toast('Post został dodany','success');
         return redirect()->route('admin.post.index');
     }
 
@@ -118,7 +118,7 @@ class PostController extends Controller
         $post->update($data);
         $post->tags()->sync($data['tags']);
 
-        toast('Your post has been updated','success');
+        toast('Post został zaaktualizowany','success');
         return redirect()->route('admin.post.index');
     }
 

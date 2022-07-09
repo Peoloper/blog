@@ -6,9 +6,9 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="">Home</a></li>
-                        <li class="breadcrumb-item"><a href="">Post list</a></li>
-                        <li class="breadcrumb-item active">Edit Post</li>
+                        <li class="breadcrumb-item"><a href="">Strona główna</a></li>
+                        <li class="breadcrumb-item"><a href="">Posty</a></li>
+                        <li class="breadcrumb-item active">Edytuj post</li>
                     </ol>
                 </div>
             </div>
@@ -22,8 +22,8 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="d-flex justify-content-between align-items-center">
-                                <h3 class="card-title">Edit Post - </h3>
-                                <a href="" class="btn btn-primary">Go Back to Post List</a>
+                                <h3 class="card-title">Edytuj post - {{$post->title}} </h3>
+                                <a href="" class="btn btn-primary">Powrót</a>
                             </div>
                         </div>
                         <div class="card-body p-0">
@@ -43,11 +43,11 @@
                                             @csrf
                                             @method('PUT')
                                             <div class="form-group">
-                                                <label for="title">Post title</label>
-                                                <input type="name" name="title" value="{{$post->title}}" class="form-control" placeholder="Enter title">
+                                                <label for="title">Tytuł</label>
+                                                <input type="name" name="title" value="{{$post->title}}" class="form-control" placeholder="Podaj tytuł">
                                             </div>
                                             <div class="form-group">
-                                                <label for="category">Post Category</label>
+                                                <label for="category">Kategoria</label>
                                                 <select name="category_id" id="category_id" class="form-control">
                                                     <option value="{{$post->category->id}}" style="display: none" selected>{{$post->category->name}}</option>
                                                     @foreach($categories as $category)
@@ -58,10 +58,10 @@
                                             <div class="form-group">
                                                 <div class="row">
                                                     <div class="col-8">
-                                                        <label for="image">Image</label>
+                                                        <label for="image">Zdjęcie</label>
                                                         <div class="custom-file">
                                                             <input type="file" name="image" class="custom-file-input" id="image">
-                                                            <label class="custom-file-label" for="image">Choose file</label>
+                                                            <label class="custom-file-label" for="image">Wybierz zdjęcie</label>
                                                         </div>
                                                     </div>
                                                     <div class="col-4 text-right">
@@ -72,7 +72,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label>Choose Post Tags</label>
+                                                <label>Wybierz tag</label>
                                                 <div class=" d-flex flex-wrap">
                                                     @foreach($tags as $tag)
                                                         <div class="custom-control custom-checkbox" style="margin-right: 20px">
@@ -89,20 +89,20 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="description">Description</label>
+                                                <label for="description">Opis</label>
                                                 <textarea name="content" id="content" rows="4" class="form-control ckeditor"
-                                                          placeholder="Enter description">{{$post->content}}</textarea>
+                                                          placeholder="Podaj opis">{{$post->content}}</textarea>
                                             </div>
-                                            @can('publish posts')
+                                            @can('publikacja postów')
                                             <div class="form-group">
-                                                <label>Published
+                                                <label>Publikuj
                                                     <input type="hidden" name="is_published" value="0"/>
                                                     <input type="checkbox" name="is_published"  value="1" {{($post->is_published == 1 ? ' checked' : '')}}
                                                 </label>
                                             </div>
                                             @endcan
                                             <div class="form-group">
-                                                <button type="submit" class="btn btn-lg btn-primary float-right">Update</button>
+                                                <button type="submit" class="btn btn-lg btn-primary float-right">Aktualizuj</button>
                                             </div>
                                         </form>
                                     </div>

@@ -1,7 +1,7 @@
 <template>
     <li>
         <a href="#" class="dropdown-toggle"  @click="markNotificationAsRead" data-bs-toggle="dropdown" role="button" aria-expanded="false">
-            <span class="glyphicon glyphicon-globe"></span> Notifications <span
+            <span class="glyphicon glyphicon-globe"></span> Powiadomienia <span
             class="badge alert-danger">{{unreadNotifications.length}}</span>
         </a>
 

@@ -6,9 +6,9 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="">Home</a></li>
-                        <li class="breadcrumb-item"><a href="">Categories list</a></li>
-                        <li class="breadcrumb-item active">Edit Category</li>
+                        <li class="breadcrumb-item"><a href="">Strona główna</a></li>
+                        <li class="breadcrumb-item"><a href="">Kategorie</a></li>
+                        <li class="breadcrumb-item active">Edytuj kategorię</li>
                     </ol>
                 </div>
             </div>
@@ -22,8 +22,8 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="d-flex justify-content-between align-items-center">
-                                <h3 class="card-title">Edit Category - {{ $category->name }} </h3>
-                                <a href="{{route('admin.post.index')}}" class="btn btn-primary">Go Back to Post List</a>
+                                <h3 class="card-title">Kategoria - {{ $category->name }} </h3>
+                                <a href="{{route('admin.post.index')}}" class="btn btn-primary">Powrót</a>
                             </div>
                         </div>
                         <div class="card-body p-0">
@@ -43,16 +43,16 @@
                                             @csrf
                                             @method('PUT')
                                             <div class="form-group">
-                                                <label for="name">Category name</label>
-                                                <input type="name" name="name" class="form-control" value="{{ $category->name }}" placeholder="Enter name">
+                                                <label for="name">Nazwa Kategorii</label>
+                                                <input type="name" name="name" class="form-control" value="{{ $category->name }}">
                                             </div>
                                             <div class="form-group">
                                                 <div class="row">
                                                     <div class="col-8">
-                                                        <label for="image">Image</label>
+                                                        <label for="image">Zdjęcie</label>
                                                         <div class="custom-file">
                                                             <input type="file" name="image" class="custom-file-input" id="image">
-                                                            <label class="custom-file-label" for="image">Choose file</label>
+                                                            <label class="custom-file-label" for="image">Wybierz zdjęcie</label>
                                                         </div>
                                                     </div>
                                                     <div class="col-4 text-right">
@@ -63,7 +63,7 @@
                                                 </div>
                                             </div>
                                             <div class="card-footer">
-                                                <button type="submit" class="btn btn-lg btn-primary float-right">Update</button>
+                                                <button type="submit" class="btn btn-lg btn-primary float-right">Aktualizuj</button>
                                             </div>
                                         </form>
                                     </div>

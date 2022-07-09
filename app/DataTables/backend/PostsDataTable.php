@@ -94,12 +94,12 @@ class PostsDataTable extends DataTable
     {
         return [
             Column::make('id'),
-            Column::make('title')->title('Title'),
-            Column::make('content')->title('Content'),
-            Column::make('User', 'user_id'),
-            Column::make('Category', 'category_id'),
-            Column::make('is_published')->title('Published'),
-            Column::make('created_at')->title('Added'),
+            Column::make('title')->title('Tytuł'),
+            Column::make('content')->title('Opis'),
+            Column::make('User', 'user_id')->title('Użytkownik'),
+            Column::make('Category', 'category_id')->title('Kategoria'),
+            Column::make('is_published')->title('Opublikowano'),
+            Column::make('created_at')->title('Dodano'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

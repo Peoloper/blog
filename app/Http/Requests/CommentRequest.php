@@ -44,4 +44,17 @@ class CommentRequest extends FormRequest
         else
             return false;
     }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Pole nazwa jest wymagane',
+            'name.min'      => 'Pole nazwa nie może mieć mniej niż :min znaków',
+            'name.max'      => 'Pole nazwa nie może przekroczyć :max znaków',
+
+            'comment.required' => 'Komentarz nie może być pusty',
+            'comment.min'      => 'Pole nazwa musi mieć minimum :min znaków',
+            'comment.max'      => 'Pole nazwa musi mieć maksimum :max znaków',
+        ];
+    }
 }

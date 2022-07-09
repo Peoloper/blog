@@ -21,7 +21,7 @@ class PhotosTableSeeder extends Seeder
     public function run()
     {
 
-        for ($i = 1; $i <= 5; $i++)
+        for ($i = 1; $i <= 6; $i++)
         {
             DB::table('photos')->insert([
                 'photoable_type' => 'App\Models\Category',

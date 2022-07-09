@@ -23,7 +23,10 @@ class CategoryController extends Controller
     public function categoryPost(string $slug)
     {
         $category = Category::where('name', $slug)->first();
-        $posts = $category->posts()->with(['photos','user', 'category'])->get();
+        $posts = $category->posts()
+            ->with(['photos','user', 'category'])
+            ->where('is_published', 1)
+            ->get();
 
         return view('frontend.categoryPost', ['posts' => $posts]);
     }

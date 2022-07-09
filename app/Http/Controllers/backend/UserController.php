@@ -50,7 +50,7 @@ class UserController extends Controller
         ]);
 
         $user->assignRole($data['role']);
-
+        toast('Użytkownik został dodany','success');
         return redirect()->route('admin.user.index');
     }
 

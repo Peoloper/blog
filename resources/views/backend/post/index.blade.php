@@ -6,8 +6,8 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="">Home</a></li>
-                        <li class="breadcrumb-item active">Posts list</li>
+                        <li class="breadcrumb-item"><a href="">Strona główna</a></li>
+                        <li class="breadcrumb-item active">Posty</li>
                     </ol>
                 </div>
             </div>
@@ -21,9 +21,9 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="d-flex justify-content-between align-items-center">
-                                <h3 class="card-title">Posts List</h3>
-                                @can('write post')
-                                    <a href="{{route('admin.post.create')}}" class="btn btn-primary">Create Post</a>
+                                <h3 class="card-title">Posty</h3>
+                                @can('pisanie postów')
+                                    <a href="{{route('admin.post.create')}}" class="btn btn-primary">Dodaj post</a>
                                 @endcan
                             </div>
                         </div>

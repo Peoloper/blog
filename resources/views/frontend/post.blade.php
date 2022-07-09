@@ -21,14 +21,14 @@
 
     <div class="container mt-4" id="app">
         <div class="row">
-            <div class="col-md-8 col-sm-8 col-lg-8 wrapText">
+            <div class="col-md-10 col-sm-10 col-lg-10 wrapText">
                 <div>
                     {!! $post->content !!}
                 </div>
                 <div class="pt-4">
                     <p>
-                        Categories: <a href="{{route('categoryPost', ['slug' => $post->category->name])}}">{{$post->category->name}}</a>
-                        Tags:
+                        Kategorię: <a href="{{route('categoryPost', ['slug' => $post->category->name])}}">{{$post->category->name}}</a>
+                        Tagi:
                         @foreach($post->tags as $tag)
                             <a href="">{{$tag->name}}</a>
                         @endforeach
@@ -38,9 +38,9 @@
                     <comments :postid="{{$post->id}}"/>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-4 col-lg-4 text-center">
-                    <h3>Categories</h3>
-                    <ul class="text-right list-inline">
+            <div class="col-md-2 col-sm-2 col-lg-2 text-center">
+                    <h3>Kategorie</h3>
+                    <ul class="text-center list-inline">
                         @foreach($categories as $category)
                             <li>
                                 <a href="{{route('categoryPost', ['slug' => $category->name])}}"> {{$category->name}}
@@ -50,8 +50,8 @@
                         @endforeach
                     </ul>
 
-                    <h3>Tags</h3>
-                <ul class="text-right list-inline">
+                    <h3>Tagi</h3>
+                <ul class="text-center list-inline">
                         @foreach($tags as $tag)
                             <li>{{$tag->name}}</li>
                         @endforeach

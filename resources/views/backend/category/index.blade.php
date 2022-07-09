@@ -6,8 +6,8 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="">Home</a></li>
-                        <li class="breadcrumb-item active">Category list</li>
+                        <li class="breadcrumb-item"><a href="">Strona główna</a></li>
+                        <li class="breadcrumb-item active">Kategorie</li>
                     </ol>
                 </div>
             </div>
@@ -21,8 +21,8 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="d-flex justify-content-between align-items-center">
-                                <h3 class="card-title">Category List</h3>
-                                <a href="{{route('admin.category.create')}}" class="btn btn-primary">Create Category</a>
+                                <h3 class="card-title">Kategorie</h3>
+                                <a href="{{route('admin.category.create')}}" class="btn btn-primary">Dodaj kategorię</a>
                             </div>
                         </div>
                         <div class="card-body">

@@ -16,8 +16,8 @@ class CategoryRequest extends FormRequest
     {
         return [
             'name' => request()->isMethod('put')
-                ? 'required|string|min:5|max:30|unique:categories,name,'.$this->category->id
-                : 'required|string|unique:categories|min:5|max:30',
+                ? 'required|string|min:2|max:30|unique:categories,name,'.$this->category->id
+                : 'required|string|unique:categories|min:2|max:30',
 
             'image' => request()->isMethod('put')
                 ? 'nullable|mimes:jpeg,jpg,png,gif,svg|max:8000'
@@ -33,5 +33,18 @@ class CategoryRequest extends FormRequest
     public function authorize()
     {
         return true;
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Pole nazwa jest wymagane',
+            'name.min'      => 'Pole nazwa nie może mieć mniej niż :min znaków',
+            'name.max'      => 'Pole nazwa nie może przekroczyć :max znaków',
+            'name.unique'      => 'Nazwa jest już zajęta',
+
+            'image.nullable'      => 'Zdjęcie nie może być pustę',
+            'image.required'      => 'Zdjęcie jest wymagane',
+        ];
     }
 }

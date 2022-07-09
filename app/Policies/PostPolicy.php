@@ -22,7 +22,7 @@ class PostPolicy
 
     public function create(User $user)
     {
-        if($user->can('write post'))
+        if($user->can('pisanie postów'))
         {
             return true;
         }
@@ -30,11 +30,11 @@ class PostPolicy
 
     public function update(User $user, Post $post)
     {
-        if($user->can('edit own posts'))
+        if($user->can('edycja własnych postów'))
         {
             return $user->id == $post->user_id;
         }
-        if ($user->can('edit all posts'))
+        if ($user->can('edycja wszystkich postów'))
         {
             return true;
         }
@@ -42,7 +42,7 @@ class PostPolicy
 
     public function delete(User $user)
     {
-        if($user->can('delete posts'))
+        if($user->can('usuwanie postów'))
         {
             return true;
         }

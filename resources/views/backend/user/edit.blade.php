@@ -6,9 +6,9 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="">Home</a></li>
-                        <li class="breadcrumb-item"><a href="">Tags list</a></li>
-                        <li class="breadcrumb-item active">Edit Tag</li>
+                        <li class="breadcrumb-item"><a href="">Strona główna</a></li>
+                        <li class="breadcrumb-item"><a href="">Użytkownik</a></li>
+                        <li class="breadcrumb-item active">Edytuj użytkownika</li>
                     </ol>
                 </div>
             </div>
@@ -22,8 +22,8 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="d-flex justify-content-between align-items-center">
-                                <h3 class="card-title">Edit User - {{ $user->name }}</h3>
-                                <a href="{{ route('admin.user.index') }}" class="btn btn-primary">Go Back to User List</a>
+                                <h3 class="card-title">Edytuj użytkownika - {{ $user->name }}</h3>
+                                <a href="{{ route('admin.user.index') }}" class="btn btn-primary">Powrót</a>
                             </div>
                         </div>
                         <div class="card-body p-0">
@@ -44,18 +44,18 @@
                                         <div class="card-body">
                                             <div class="form-group">
                                                 <label for="name">User name</label>
-                                                <input type="name" name="name" class="form-control" id="name" placeholder="Enter name" value="{{ $user->name }} ">
+                                                <input type="name" name="name" class="form-control" id="name" placeholder="Podaj nazwę" value="{{ $user->name }} ">
                                             </div>
                                             <div class="form-group">
                                                 <label for="email">Email</label>
-                                                <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" value="{{ $user->email }} ">
+                                                <input type="email" name="email" class="form-control" id="email" placeholder="Podaj email" value="{{ $user->email }} ">
                                             </div>
                                             <div class="form-group">
-                                                <label for="password">Password <small>(Enter password if you want change.)</small></label>
-                                                <input type="password" name="password" class="form-control" id="password" placeholder="Enter password">
+                                                <label for="password">Hasło </label>
+                                                <input type="password" name="password" class="form-control" id="password" placeholder="Podaj hasło">
                                             </div>
                                             <div class="form-group">
-                                                <label for="category">Roles</label>
+                                                <label for="category">Rola</label>
                                                 <select name="role" id="role" class="form-control">
                                                     @foreach($user->roles as $user_role)
                                                         <option value="{{$user_role->id}}" style="display: none" selected>{{$user_role->name}}</option>
@@ -67,7 +67,7 @@
                                             </div>
                                         </div>
                                         <div class="card-footer">
-                                            <button type="submit" class="btn btn-lg btn-primary float-right">Update</button>
+                                            <button type="submit" class="btn btn-lg btn-primary float-right">Aktualizuj</button>
                                         </div>
                                     </form>
                                 </div>

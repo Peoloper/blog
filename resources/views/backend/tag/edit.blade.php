@@ -6,9 +6,9 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="">Home</a></li>
-                        <li class="breadcrumb-item"><a href="">Tags list</a></li>
-                        <li class="breadcrumb-item active">Edit Tag</li>
+                        <li class="breadcrumb-item"><a href="">Strona główna</a></li>
+                        <li class="breadcrumb-item"><a href="">Tagi</a></li>
+                        <li class="breadcrumb-item active">Edytuj tag</li>
                     </ol>
                 </div>
             </div>
@@ -22,8 +22,8 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="d-flex justify-content-between align-items-center">
-                                <h3 class="card-title">Edit Tag - {{ $tag->name }} </h3>
-                                <a href="{{route('admin.tag.index')}}" class="btn btn-primary">Go Back to Tags List</a>
+                                <h3 class="card-title">Edytuj tag - {{ $tag->name }} </h3>
+                                <a href="{{route('admin.tag.index')}}" class="btn btn-primary">Powrót</a>
                             </div>
                         </div>
                         <div class="card-body p-0">
@@ -43,8 +43,8 @@
                                             @csrf
                                             @method('PUT')
                                             <div class="form-group">
-                                                <label for="name">Tag name</label>
-                                                <input type="name" name="name" class="form-control" value="{{ $tag->name }}" placeholder="Enter name">
+                                                <label for="name">Nazwa</label>
+                                                <input type="name" name="name" class="form-control" value="{{ $tag->name }}" placeholder="">
                                             </div>
                                             <div class="form-group">
                                                 <div class="row">
@@ -55,7 +55,7 @@
                                                 </div>
                                             </div>
                                             <div class="card-footer">
-                                                <button type="submit" class="btn btn-lg btn-primary float-right">Update</button>
+                                                <button type="submit" class="btn btn-lg btn-primary float-right">Aktualizuj</button>
                                             </div>
                                         </form>
                                     </div>

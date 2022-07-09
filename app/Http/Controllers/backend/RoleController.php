@@ -44,7 +44,7 @@ class RoleController extends Controller
         $role = Role::create(['name' => $data['name']]);
         $role->syncPermissions($data['permissions']);
 
-        toast('The role has been added','success');
+        toast('Rola została dodana','success');
         return redirect()->route('admin.role.index');
     }
 
@@ -87,7 +87,7 @@ class RoleController extends Controller
         $role->update(['name' => $data['name']]);
         $role->syncPermissions($data['permissions']);
 
-        toast('The role has been updated','success');
+        toast('Rola została zaaktualizowana','success');
         return redirect()->route('admin.role.index');
     }
 

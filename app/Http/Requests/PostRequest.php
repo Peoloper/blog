@@ -20,7 +20,7 @@ class PostRequest extends FormRequest
             'content' => [
                 'required',
                 'string',
-                'max: 1000'
+                'max: 10000'
             ],
             'category_id' => [
                 'required',
@@ -47,5 +47,24 @@ class PostRequest extends FormRequest
     public function authorize()
     {
         return true;
+    }
+
+    public function messages()
+    {
+        return [
+            'title.required' => 'Pole nazwa jest wymagane',
+            'title.min'      => 'Pole nazwa nie może mieć mniej niż :min znaków',
+            'title.max'      => 'Pole nazwa nie może przekroczyć :max znaków',
+            'title.unique'   => 'Nazwa jest już zajęta',
+
+            'content.required' => 'Pole opis jest wymagane',
+            'content.max'      => 'Pole opis nie może przekroczyć :max znaków',
+
+            'tags.required'      => 'Wybierz tag',
+            'category_id.required'      => 'Wybierz Kategorie',
+
+            'image.nullable'      => 'Zdjęcie nie może być pustę',
+            'image.required'      => 'Zdjęcie jest wymagane',
+        ];
     }
 }
