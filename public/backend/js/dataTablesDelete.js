@@ -12,14 +12,15 @@
     let link = $(this).attr("href");
     let table = $(this).data('table');
     Swal.fire({
-    title: 'Are you sure?',
-    text: "You won't be able to revert this!",
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'Yes, delete it!'
-}).then((result) => {
+        title: 'Jesteś pewny?',
+        text: "Nie będziesz w stanie tego cofnąć!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Tak, usuń!',
+        cancelButtonText: 'Anuluj'
+    }).then((result) => {
     if (result.value) {
     $.ajax({
     url: link,
