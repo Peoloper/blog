@@ -33,7 +33,7 @@
                     <a href="{{route('admin.category.index')}}" class="nav-link ">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
-                            Categories
+                            Kategorię
                         </p>
                     </a>
                 </li>
@@ -41,7 +41,7 @@
                     <a href="{{route('admin.tag.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-tag"></i>
                         <p>
-                            Tags
+                            Tagi
                         </p>
                     </a>
                 </li>
@@ -49,7 +49,7 @@
                     <a href="{{route('admin.post.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-pen-square"></i>
                         <p>
-                            Posts
+                            Posty
                         </p>
                     </a>
                 </li>
@@ -58,7 +58,7 @@
                         <a href="{{route('admin.user.index')}}" class="nav-link ">
                             <i class="nav-icon fas fa-users"></i>
                             <p>
-                                Users
+                                Użytkownicy
                             </p>
                         </a>
                     </li>
@@ -66,7 +66,7 @@
                         <a href="{{route('admin.role.index')}}" class="nav-link ">
                             <i class="nav-icon fas fa-user-shield"></i>
                             <p>
-                                Roles
+                                Role
                             </p>
                         </a>
                     </li>
@@ -74,7 +74,7 @@
                         <a href="{{route('admin.permission.index')}}" class="nav-link ">
                             <i class="nav-icon fas fa-key"></i>
                             <p>
-                                Permissions
+                                Uprawnienia
                             </p>
                         </a>
                     </li>
@@ -83,7 +83,7 @@
                     <a href="{{route('admin.profile.index')}}" class="nav-link">
                         <i class="nav-icon fa fa-edit"></i>
                         <p>
-                            Profile
+                            Profil
                         </p>
                     </a>
                 </li>
@@ -91,7 +91,7 @@
                     <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">
                         <i class="nav-icon fas fa-sign-out-alt"></i>
                         <p>
-                            Logout
+                            Wyloguj się
                         </p>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf

@@ -48,7 +48,7 @@ class CategoryController extends Controller
         $category = Category::create($data);
         $category->photos()->create(['path' => $filePath]);
 
-        toast('The category has been added','success');
+        toast('Kategoria została dodana','success');
         return redirect()->route('admin.category.index');
     }
 
@@ -95,7 +95,7 @@ class CategoryController extends Controller
 
         $category->update($data);
 
-        toast('The category has been updated','success');
+        toast('Kategoria została zaaktualizowana','success');
         return redirect()->route('admin.category.index');
     }
 

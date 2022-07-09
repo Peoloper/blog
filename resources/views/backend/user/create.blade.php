@@ -7,9 +7,9 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('admin.user.index') }}">Users list</a></li>
-                        <li class="breadcrumb-item active">Create User</li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Strona główna</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.user.index') }}">Użytkownicy</a></li>
+                        <li class="breadcrumb-item active">Dodaj użytkownika</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -25,8 +25,8 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="d-flex justify-content-between align-items-center">
-                                <h3 class="card-title">Create User</h3>
-                                <a href="{{ route('admin.user.index') }}" class="btn btn-primary">Go Back to User List</a>
+                                <h3 class="card-title">Dodaj użytkownika</h3>
+                                <a href="{{ route('admin.user.index') }}" class="btn btn-primary">Powrót</a>
                             </div>
                         </div>
                         <div class="card-body p-0">
@@ -45,21 +45,21 @@
                                         @csrf
                                         <div class="card-body">
                                             <div class="form-group">
-                                                <label for="name">User name</label>
-                                                <input type="name" name="name" class="form-control" id="name" placeholder="Enter name">
+                                                <label for="name">Nazwa</label>
+                                                <input type="name" name="name" class="form-control" id="name" placeholder="Podaj nazwę">
                                             </div>
                                             <div class="form-group">
                                                 <label for="email">Email</label>
-                                                <input type="email" name="email" class="form-control" id="email" placeholder="Enter email">
+                                                <input type="email" name="email" class="form-control" id="email" placeholder="Podaj email">
                                             </div>
                                             <div class="form-group">
-                                                <label for="password">Password</label>
-                                                <input type="password" name="password" class="form-control" id="password" placeholder="Enter password">
+                                                <label for="password">Hasło</label>
+                                                <input type="password" name="password" class="form-control" id="password" placeholder="Podaj hasło">
                                             </div>
                                             <div class="form-group">
-                                                <label for="category">Roles</label>
+                                                <label for="role">Rola</label>
                                                 <select name="role" id="role" class="form-control">
-                                                    <option value="" style="display: none" selected>Select Roles</option>
+                                                    <option value="" style="display: none" selected>Wybierz rolę</option>
                                                     @foreach($roles as $role)
                                                         <option value="{{$role->id}}">{{$role->name}}</option>
                                                     @endforeach
@@ -67,7 +67,7 @@
                                             </div>
                                         </div>
                                         <div class="card-footer">
-                                            <button type="submit" class="btn btn-lg btn-primary float-right">Create</button>
+                                            <button type="submit" class="btn btn-lg btn-primary float-right">Dodaj</button>
                                         </div>
                                     </form>
                                 </div>

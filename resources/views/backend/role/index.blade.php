@@ -6,8 +6,8 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="">Home</a></li>
-                        <li class="breadcrumb-item active">Role list</li>
+                        <li class="breadcrumb-item"><a href="">Strona główna</a></li>
+                        <li class="breadcrumb-item active">Role</li>
                     </ol>
                 </div>
             </div>
@@ -20,8 +20,8 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="d-flex justify-content-between align-items-center">
-                                <h3 class="card-title">Tag List</h3>
-                                <a href="{{route('admin.role.create')}}" class="btn btn-primary">Create Role</a>
+                                <h3 class="card-title">Role</h3>
+                                <a href="{{route('admin.role.create')}}" class="btn btn-primary">Dodaj role</a>
                             </div>
                         </div>
                         <div class="card-body p-0">
@@ -29,8 +29,8 @@
                                 <thead>
                                 <tr>
                                     <th style="width: 10px">#</th>
-                                    <th>Role</th>
-                                    <th>Permissions</th>
+                                    <th>Rola</th>
+                                    <th>Uprawnienia</th>
                                     <th style="width: 40px">Action</th>
                                 </tr>
                                 </thead>
@@ -72,13 +72,14 @@
                 var form =  $(this).closest("form");
                 e.preventDefault();
                 Swal.fire({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
+                    title: 'Jesteś pewny?',
+                    text: "Nie będziesz w stanie tego cofnąć!",
                     icon: 'warning',
                     showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Tak, usuń!',
+                    cancelButtonText: 'Anuluj'
                 }).then((result) => {
                     if (result.value)
                     {

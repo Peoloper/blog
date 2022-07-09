@@ -5,9 +5,9 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="">Home</a></li>
-                        <li class="breadcrumb-item"><a href="">Role list</a></li>
-                        <li class="breadcrumb-item active">Edit Role</li>
+                        <li class="breadcrumb-item"><a href="">Strona główna</a></li>
+                        <li class="breadcrumb-item"><a href="">Rola</a></li>
+                        <li class="breadcrumb-item active">Edytuj rolę</li>
                     </ol>
                 </div>
             </div>
@@ -21,8 +21,8 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="d-flex justify-content-between align-items-center">
-                                <h3 class="card-title">Edit Role - {{$role->name}} </h3>
-                                <a href="" class="btn btn-primary">Go Back to Roles List</a>
+                                <h3 class="card-title">Edytuj rolę - {{$role->name}} </h3>
+                                <a href="" class="btn btn-primary">Powrót</a>
                             </div>
                         </div>
                         <div class="card-body p-0">
@@ -43,11 +43,11 @@
                                         <div class="card-body">
                                             <div class="form-group">
                                                 <label for="name">Role name</label>
-                                                <input type="name" name="name" class="form-control" value="{{$role->name}}" placeholder="Enter name">
+                                                <input type="name" name="name" class="form-control" value="{{$role->name}}" placeholder="Podaj nazwę">
                                             </div>
                                         </div>
                                         <div class="card-body">
-                                            <h5><b>Assign Permissions</b></h5>
+                                            <h5><b>Przypisz uprawnienia</b></h5>
                                             <div class="form-group">
                                                 @foreach($permissions as $permission)
                                                     <div class="custom-control custom-checkbox" style="margin-right: 20px">
@@ -64,7 +64,7 @@
                                             </div>
                                             <br>
                                             <div class="card-footer">
-                                                <button type="submit" class="btn btn-lg btn-primary">Update Tag</button>
+                                                <button type="submit" class="btn btn-lg btn-primary">Aktualizuj</button>
                                             </div>
                                         </div>
                                     </form>

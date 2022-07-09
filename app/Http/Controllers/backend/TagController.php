@@ -39,6 +39,7 @@ class TagController extends Controller
     {
         $tag = Tag::create($request->validated());
 
+        toast('Tag został dodany','success');
         return redirect()->route('admin.tag.index');
     }
 
@@ -75,6 +76,7 @@ class TagController extends Controller
     {
         $tag->update($request->validated());
 
+        toast('Tag został zaaktualizowany','success');
         return redirect()->route('admin.tag.index');
     }
 

@@ -6,9 +6,9 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="">Home</a></li>
-                        <li class="breadcrumb-item"><a href="">Post list</a></li>
-                        <li class="breadcrumb-item active">View Post</li>
+                        <li class="breadcrumb-item"><a href="">Strona główna</a></li>
+                        <li class="breadcrumb-item"><a href="">Post</a></li>
+                        <li class="breadcrumb-item active">Zobacz post</li>
                     </ol>
                 </div>
             </div>
@@ -22,8 +22,8 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="d-flex justify-content-between align-items-center">
-                                <h3 class="card-title">View Post</h3>
-                                <a href="{{route('admin.post.index')}}" class="btn btn-primary">Go Back to Posts List</a>
+                                <h3 class="card-title">Post - {{$post->title}}</h3>
+                                <a href="{{route('admin.post.index')}}" class="btn btn-primary">Powrót</a>
                             </div>
                         </div>
                         <div class="card-body">
@@ -39,15 +39,15 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th style="width: 200px">Title</th>
+                                    <th style="width: 200px">Tytuł</th>
                                     <td>{{$post->title}}</td>
                                 </tr>
                                 <tr>
-                                    <th style="width: 200px">Category Name</th>
+                                    <th style="width: 200px">Kategoria</th>
                                     <td>{{$post->category->name}}</td>
                                 </tr>
                                 <tr>
-                                    <th style="width: 200px">Post Tags</th>
+                                    <th style="width: 200px">Tagi</th>
                                     <td>
                                         @foreach($post->tags as $tag)
                                             <span class="badge badge-primary">{{$tag->name}}</span>
@@ -55,11 +55,11 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th style="width: 200px">Author Name</th>
+                                    <th style="width: 200px">Autor</th>
                                     <td>{{$post->user->name}}</td>
                                 </tr>
                                 <tr>
-                                    <th style="width: 200px">Description</th>
+                                    <th style="width: 200px">Opis</th>
                                     <td> {!! $post->content !!}</td>
                                 </tr>
                                 </tbody>

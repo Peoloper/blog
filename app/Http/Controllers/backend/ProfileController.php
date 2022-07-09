@@ -40,7 +40,7 @@ class ProfileController extends Controller
 
         $profile->update($data);
 
-        toast('Your profile has been updated','success');
+        toast('Profil został zaaktualizowany','success');
         return redirect()->route('admin.profile.index');
     }
 

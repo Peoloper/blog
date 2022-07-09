@@ -38,4 +38,25 @@ class ProfileRequest extends FormRequest
     {
         return true;
     }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Pole nazwa jest wymagane',
+            'name.min'      => 'Pole nazwa nie może mieć mniej niż :min znaków',
+            'name.max'      => 'Pole nazwa nie może przekroczyć :max znaków',
+            'name.unique'      => 'Nazwa jest już zajęta',
+
+            'email.required' => 'Pole email jest wymagane',
+            'email.min'      => 'Pole email nie może mieć mniej niż :min znaków',
+            'email.max'      => 'Pole email nie może przekroczyć :max znaków',
+            'email.unique'      => 'Email jest już zajęta',
+
+            'password.required' => 'Podaj hasło',
+            'password.min'      => 'Hasło nie może mieć mniej niż :min znaków',
+
+            'image.nullable'      => 'Zdjęcie nie może być pustę',
+            'image.required'      => 'Zdjęcie jest wymagane',
+        ];
+    }
 }

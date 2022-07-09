@@ -6,9 +6,9 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="">Home</a></li>
-                        <li class="breadcrumb-item"><a href="">Roles list</a></li>
-                        <li class="breadcrumb-item active">Create Role</li>
+                        <li class="breadcrumb-item"><a href="">Strona główna</a></li>
+                        <li class="breadcrumb-item"><a href="">Role</a></li>
+                        <li class="breadcrumb-item active">Dodaj rolę</li>
                     </ol>
                 </div>
             </div>
@@ -21,8 +21,8 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="d-flex justify-content-between align-items-center">
-                                <h3 class="card-title">Create Role</h3>
-                                <a href="" class="btn btn-primary">Go Back to Roles List</a>
+                                <h3 class="card-title">Dodaj rolę</h3>
+                                <a href="" class="btn btn-primary">Powrót</a>
                             </div>
                         </div>
                         <div class="card-body p-0">
@@ -42,8 +42,8 @@
                                         @method('POST')
                                         <div class="card-body">
                                             <div class="form-group">
-                                                <label for="name">Role name</label>
-                                                <input type="text" name="name"  class="form-control" placeholder="Enter name">
+                                                <label for="name">Nazwa</label>
+                                                <input type="text" name="name"  class="form-control" placeholder="">
                                             </div>
                                             <div class="form-group">
                                                 @foreach($permissions as $permission)
@@ -53,11 +53,10 @@
                                                     </div>
                                                 @endforeach
                                             </div>
-
                                         </div>
 
                                         <div class="card-footer">
-                                            <button type="submit" class="btn btn-lg btn-primary float-right">Create</button>
+                                            <button type="submit" class="btn btn-lg btn-primary float-right">Dodaj</button>
                                         </div>
                                     </form>
                                 </div>

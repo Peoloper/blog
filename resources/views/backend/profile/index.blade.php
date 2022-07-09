@@ -7,8 +7,8 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="">Home</a></li>
-                        <li class="breadcrumb-item active">Profile</li>
+                        <li class="breadcrumb-item"><a href="">Strona główna</a></li>
+                        <li class="breadcrumb-item active">Profil</li>
                     </ol>
                 </div>
             </div>
@@ -56,25 +56,25 @@
                                     @method('PUT')
                                     <div class="card-body">
                                         <div class="form-group">
-                                            <label for="name">User name</label>
-                                            <input type="name" name="name" class="form-control" id="name" placeholder="Enter name" value="{{ $user->name }} ">
+                                            <label for="name">Nazwa użytkownika</label>
+                                            <input type="name" name="name" class="form-control" id="name" placeholder="Podaj nazwę" value="{{ $user->name }} ">
                                         </div>
                                         <div class="form-group">
                                             <label for="email">Email</label>
-                                            <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" value="{{ $user->email }} ">
+                                            <input type="email" name="email" class="form-control" id="email" placeholder="Podaj email" value="{{ $user->email }} ">
                                         </div>
                                         <div class="form-group">
-                                            <label for="password">Password <small>(Enter password if you want change.)</small></label>
-                                            <input type="password" name="password" class="form-control" id="password" placeholder="Enter password">
+                                            <label for="password">Hasło</label>
+                                            <input type="password" name="password" class="form-control" id="password" placeholder="Podaj hasło">
                                         </div>
                                         <div class="form-group">
-                                            <label for="image">Image</label>
+                                            <label for="image">Zdjęcie profilowe</label>
                                             <div class="custom-file">
                                                 <input type="file" name="image" class="custom-file-input" id="image">
-                                                <label class="custom-file-label" for="image">Choose file</label>
+                                                <label class="custom-file-label" for="image">Wybierz zdjęcie</label>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-lg btn-primary float-right">Update</button>
+                                        <button type="submit" class="btn btn-lg btn-primary float-right">Zaaktualizuj</button>
                                     </div>
                                 </form>
                             </div>

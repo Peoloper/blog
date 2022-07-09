@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="">Home</a></li>
+                        <li class="breadcrumb-item"><a href="">Strona główna</a></li>
                         <li class="breadcrumb-item active">Dashboard</li>
                     </ol>
                 </div>
@@ -25,7 +25,7 @@
                         <div class="inner">
                             <h3></h3>
                             {{$post}}
-                            <p>Posts</p>
+                            <p>Posty</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-pen-square"></i>
@@ -38,7 +38,7 @@
                         <div class="inner">
                             <h3></h3>
                             {{$category}}
-                            <p>Categories</p>
+                            <p>Kategorię</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-tags"></i>
@@ -51,7 +51,7 @@
                         <div class="inner">
                             <h3></h3>
                             {{$tag}}
-                            <p>Tags</p>
+                            <p>Tagi</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-tag"></i>
@@ -63,7 +63,7 @@
                         <div class="inner">
                             <h3></h3>
                             {{$user}}
-                            <p>Users</p>
+                            <p>Użytkownicy</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-user"></i>

@@ -29,4 +29,14 @@ class TagRequest extends FormRequest
     {
         return true;
     }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Pole nazwa jest wymagane',
+            'name.min'      => 'Pole nazwa nie może mieć mniej niż :min znaków',
+            'name.max'      => 'Pole nazwa nie może przekroczyć :max znaków',
+            'name.unique'      => 'Nazwa jest już zajęta',
+        ];
+    }
 }

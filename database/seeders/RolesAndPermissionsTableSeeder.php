@@ -18,25 +18,26 @@ class RolesAndPermissionsTableSeeder extends Seeder
     {
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
-        Permission::create(['name' => 'write post']);
-        Permission::create(['name' => 'edit own posts']);
-        Permission::create(['name' => 'edit all posts']);
-        Permission::create(['name' => 'delete posts']);
-        Permission::create(['name' => 'publish posts']);
+        Permission::create(['name' => 'pisanie postów']);
+        Permission::create(['name' => 'edycja własnych postów']);
+        Permission::create(['name' => 'edycja wszystkich postów']);
+        Permission::create(['name' => 'usuwanie postów']);
+        Permission::create(['name' => 'publikacja postów']);
 
-        $role1 = Role::create(['name' => 'Writer']);
-        $role1->givePermissionTo('write post');
-        $role1->givePermissionTo('edit own posts');
+        $role1 = Role::create(['name' => 'Pisarz']);
+        $role1->givePermissionTo('pisanie postów');
+        $role1->givePermissionTo('edycja własnych postów');
 
-        $role2 = Role::create(['name' => 'Editor']);
-        $role2->givePermissionTo('write post');
-        $role2->givePermissionTo('edit all posts');
-        $role2->givePermissionTo('publish posts');
+        $role2 = Role::create(['name' => 'Edytor']);
+        $role2->givePermissionTo('pisanie postów');
+        $role2->givePermissionTo('edycja wszystkich postów');
+        $role2->givePermissionTo('publikacja postów');
 
         $role3 = Role::create(['name' => 'Admin']);
-        $role3->givePermissionTo('write post');
-        $role3->givePermissionTo('edit all posts');
-        $role3->givePermissionTo('publish posts');
-        $role3->givePermissionTo('delete posts');
+        $role3->givePermissionTo('pisanie postów');
+        $role3->givePermissionTo('edycja wszystkich postów');
+        $role3->givePermissionTo('publikacja postów');
+        $role3->givePermissionTo('usuwanie postów');
+
     }
 }
